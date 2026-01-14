@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css" />
+  <!-- Swiper CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
+  <!-- Swiper JS -->
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <script src="https://kit.fontawesome.com/f1d482b492.js" crossorigin="anonymous"></script>
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css" />
+</head>
+
+<body>
+  <div id="navbar-invitation" class="container flex justify-center items-center mx-auto relative opacity-0"
+    style="transition: transform 0.5s ease-in-out; animation-duration: 0.2ms">
+    <!-- nav menu -->
+    <!-- <nav
+        class="flex flex-row w-max md:rounded-lg rounded fixed z-50 mx-auto bottom-6 px-1 h-auto bg-stone-50 bg-opacity-80 justify-center items-center shadow-lg"
+      >
+        <a
+          href="#cover"
+          class="w-9 h-9 md:w-10 md:h-10 lg:w-12 lg:h-12 flex justify-center items-center md:m-2 m-1 bg-[#CB9D7E] md:rounded-lg rounded"
+        >
+          <img src="./assets/image/icon-menu/ic-1.svg" width="50%" alt="" />
+        </a>
+        <a
+          href="#2"
+          class="w-9 h-9 md:w-10 md:h-10 lg:w-12 lg:h-12 flex justify-center items-center md:m-2 m-1 bg-[#CB9D7E] md:rounded-lg rounded"
+        >
+          <img src="./assets/image/icon-menu/ic-2.svg" width="50%" alt="" />
+        </a>
+        <a
+          href="#3"
+          class="w-9 h-9 md:w-10 md:h-10 lg:w-12 lg:h-12 flex justify-center items-center md:m-2 m-1 bg-[#CB9D7E] md:rounded-lg rounded"
+        >
+          <img src="./assets/image/icon-menu/ic-3.svg" width="50%" alt="" />
+        </a>
+        <a
+          href="#4"
+          class="w-9 h-9 md:w-10 md:h-10 lg:w-12 lg:h-12 flex justify-center items-center md:m-2 m-1 bg-[#CB9D7E] md:rounded-lg rounded"
+        >
+          <img src="./assets/image/icon-menu/ic-4.svg" width="50%" alt="" />
+        </a>
+        <a
+          href="#5"
+          class="w-9 h-9 md:w-10 md:h-10 lg:w-12 lg:h-12 flex justify-center items-center md:m-2 m-1 bg-[#CB9D7E] md:rounded-lg rounded"
+        >
+          <img src="./assets/image/icon-menu/ic-5.svg" width="50%" alt="" />
+        </a>
+        <a
+          href="#6"
+          class="w-9 h-9 md:w-10 md:h-10 lg:w-12 lg:h-12 flex justify-center items-center md:m-2 m-1 bg-[#CB9D7E] md:rounded-lg rounded"
+        >
+          <img src="./assets/image/icon-menu/ic-6.svg" width="50%" alt="" />
+        </a>
+      </nav> -->
+    <!-- / nav menu / -->
+
+    <audio id="myAudio" src="./assets/music/Yovie-Nuno-Janji-Suci-Video-Clip.mp3"></audio>
+    <button
+      class="bottom-20 right-5 lg:right-[33%] lg:bottom-24 z-50 fixed md:w-8 md:h-8 w-6 h-6 md:text-base text-sm rounded-full bg-color-base text-white flex justify-center items-center"
+      onclick="playPause()" style="animation: music-putar 4s linear infinite">
+      <i class="fa-solid fa-compact-disc"></i>
+    </button>
+  </div>
+
+  <button
+    class="md:bottom-32 md:left-10 bottom-24 left-4 z-50 fixed md:w-9 md:h-9 w-8 h-8 rounded-full bg-color-base text-white font-bold"
+    onclick="toggleFullScreen()">
+    &#x26F6;
+  </button>
+
+  <!-- cover  -->
+  <section id="cover"
+    class="koverr relative overflow-hidden  bg-[url('/assets/image/galery/foto-19.jpg')] w-full h-screen bg-no-repeat bg-cover  bg-center">
+    <div class="container relative mx-auto flex flex-col justify-end pb-24 items-center h-full z-30">
+      <h2 class="lg:text-4xl text-3xl font-bold font-base text-[#fff]">
+        Adit & Nisa
+      </h2>
+      <div class="flex flex-col gap-1 items-center">
+        <span class="lg:text-xl text-xs text-white">Kepada Yth. Bapak/Ibu/Saudara/i</span>
+        <h3 id="output" class="lg:text-2xl text-xl font-bold text-[#fff]"></h3>
+      </div>
+      <button id="btn-open" class="lg:text-xl text-xs py-1 px-2 bg-color-base text-white rounded font-base mt-3"
+        onclick="openCard()">
+        <i class="fa-regular fa-envelope-open mr-1"></i>
+        <span> Buka Undangan </span>
+      </button>
+    </div>
+    <div class="absolute top-0 bottom-0 left-0 right-0 bg-[#0000006a] z-0"></div>
+  </section>
+  <!-- / cover / -->
+
+  <div id="card-invitation" class="hidden">
+    <!-- section 2 mempelai -->
+    <section id="cover"
+      class="koverr relative flex flex-col overflow-hidden w-full h-screen bg-no-repeat bg-cover bg-center">
+      <div class="swiper-container w-full h-[80vh] bg-slate-500 absolute">
+        <div class="swiper-wrapper">
+          <!-- Slide 1 -->
+          <div class="swiper-slide bg-cover bg-center w-full h-full"
+            style="background-image: url('/assets/image/galery/foto-1.jpg')"></div>
+          <!-- Slide 2 -->
+          <div class="swiper-slide bg-cover bg-center w-full h-full"
+            style="background-image: url('/assets/image/galery/foto-17.jpg')"></div>
+          <!-- Slide 3 -->
+          <div class="swiper-slide bg-cover bg-center w-full h-full"
+            style="background-image: url('/assets/image/galery/foto-13.jpg')"></div>
+        </div>
+      </div>
+      <div class="flex h-full justify-end flex-col relative z-30">
+        <div class="flex flex-col text-center w-full items-center gap-1 absolute bottom-14">
+          <h2 class="lg:text-xl text-base font-base text-[#fff]">
+            The Wedding of
+          </h2>
+          <h2 class="lg:text-4xl text-3xl font-bold font-base text-[#fff]">
+            Adit & Nisa
+          </h2>
+          <h2 class="lg:text-xl text-base font-base text-[#fff]">
+            23.01.2026
+          </h2>
+
+          <div class="flex flex-row gap-2 max-w-[350px] w-full px-3">
+            <div
+              class="flex flex-col text-[#1f1f1f] justify-center items-center rounded-md w-full h-[53px] bg-[#FFFFFFA1]">
+              <h1 id="hari" class="text-lg h-6">0</h1>
+              <span class="text-xs">Days</span>
+            </div>
+            <div
+              class="flex flex-col text-[#1f1f1f] justify-center items-center rounded-md w-full h-[53px] bg-[#FFFFFFA1]">
+              <h1 id="jam" class="text-lg h-6">0</h1>
+              <span class="text-xs">Hours</span>
+            </div>
+            <div
+              class="flex flex-col text-[#1f1f1f] justify-center items-center rounded-md w-full h-[53px] bg-[#FFFFFFA1]">
+              <h1 id="menit" class="text-lg h-6">0</h1>
+              <span class="text-xs">Minutes</span>
+            </div>
+            <div
+              class="flex flex-col text-[#1f1f1f] justify-center items-center rounded-md w-full h-[55px] bg-[#FFFFFFA1]">
+              <h1 id="detik" class="text-lg h-6">0</h1>
+              <span class="text-xs">Seconds</span>
+            </div>
+          </div>
+          <div class="flex flex-col gap-3">
+            <span class="text-white font-base md:text-base text-xs mt-3 px-3 max-w-[450px] w-full">
+              "Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan
+              pasangan-pasangan untukmu dari jenismu sendiri, agar kamu
+              cenderung dan merasa tenteram kepadanya, dan Dia menjadikan di
+              antaramu rasa kasih dan sayang"
+            </span>
+            <span class="text-white md:text-base text-xs font-semibold">
+              AR-RUM AYAT : 21
+            </span>
+          </div>
+        </div>
+        <div class="bg-gradient-to-t from-[#B5B8AB] h-[25vh] w-full right-0 left-0 bottom-0"></div>
+        <div class="bg-[#B5B8AB] h-[30vh] w-full"></div>
+      </div>
+    </section>
+
+    <!-- / section 2 mempelai / -->
+
+    <!-- Slider Atas - Geser ke kanan -->
+    <section id="cover-atas" class="koverr relative flex flex-col overflow-hidden w-full h-[80vh] bg-center">
+      <div class="swiper-container-atas w-full h-full bg-slate-500 relative">
+        <div class="swiper-wrapper">
+          <!-- Slide 1 -->
+          <div class="swiper-slide bg-cover bg-center w-full h-full"
+            style="background-image: url('/assets/image/galery/foto-5.jpg')"></div>
+          <!-- Slide 2 -->
+          <div class="swiper-slide bg-cover bg-center w-full h-full"
+            style="background-image: url('/assets/image/galery/foto-6.jpg')"></div>
+          <!-- Slide 3 -->
+          <div class="swiper-slide bg-cover bg-center w-full h-full"
+            style="background-image: url('/assets/image/galery/foto-20.jpg')"></div>
+        </div>
+      </div>
+      <div class="bg-gradient-to-t z-20 absolute from-[#B5B8AB] h-[25vh] w-full right-0 left-0 bottom-0"></div>
+      <div class="absolute pl-3 pr-8 bottom-16 left-0 z-30 w-full">
+        <div class="flex flex-col gap-2 z-30 max-w-[700px] w-full px-3 py-3 bg-[#000000] bg-opacity-50 rounded-xl">
+          <h2 class="lg:text-2xl text-xl font-bold font-base text-[#fff]">
+            Aditya Tri Hangga Putra
+          </h2>
+          <h2 class="lg:text-sm text-xs font-base text-[#fff]">
+            Putra dari ibu Indah isnamawati
+          </h2>
+          <a href="#"
+            class="px-3 py-1 w-max rounded text-white text-xs bg-color-base flex justify-center items-center gap-2">
+            <i class="fa-brands fa-instagram lg:text-2xl text-base"></i>
+            tiara</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slider Bawah - Geser ke kiri -->
+    <section id="cover-bawah" class="koverr relative flex flex-col overflow-hidden w-full h-[80vh] bg-center">
+      <div dir="rtl" class="swiper-container-bawah w-full h-full bg-slate-500 relative">
+        <div class="swiper-wrapper">
+          <!-- Slide 1 -->
+          <div class="swiper-slide bg-cover bg-center w-full h-full"
+            style="background-image: url('/assets/image/galery/foto-11.jpg')"></div>
+          <!-- Slide 2 -->
+          <div class="swiper-slide bg-cover bg-center w-full h-full"
+            style="background-image: url('/assets/image/galery/foto-16.jpg')"></div>
+          <!-- Slide 3 -->
+          <div class="swiper-slide bg-cover bg-center w-full h-full"
+            style="background-image: url('/assets/image/galery/foto-10.jpg')"></div>
+        </div>
+      </div>
+      <div class="bg-gradient-to-t z-20 absolute from-[#B5B8AB] h-[25vh] w-full right-0 left-0 bottom-0"></div>
+      <div class="absolute pl-8 pr-3 bottom-16 right-0 z-30 w-full">
+        <div
+          class="flex text-end items-end flex-col gap-2 z-30 max-w-[700px] w-full px-3 py-2 bg-[#000000] bg-opacity-50 rounded-xl">
+          <h2 class="lg:text-2xl text-xl font-bold font-base text-[#fff]">
+            Fauziyah kurmiyati nuri khoirun nisa
+          </h2>
+          <h2 class="lg:text-sm text-xs font-base text-[#fff]">
+            Putri dari ibu Suharmiati dan bapak Fahrial asward
+          </h2>
+          <a href="#"
+            class="px-3 py-1 w-max rounded text-white text-xs bg-color-base flex justify-center items-center gap-2">
+            <i class="fa-brands fa-instagram lg:text-2xl text-base"></i>
+            Jati</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- save the date -->
+    <section id="cover-bawah"
+      class="koverr relative flex flex-col overflow-hidden w-full h-auto bg-center bg-[#B5B8AB]">
+      <div class="flex flex-col py-4 h-full px-3 gap-4">
+        <h2 class="lg:text-2xl text-xl font-base text-[#fff] text-center">
+          save the date
+        </h2>
+
+        <div class="flex flex-col gap-8">
+
+
+          <div class="flex flex-col w-full bg-white bg-opacity-60 overflow-hidden rounded-xl">
+            <div dir="rtl" class="swiper-container w-full h-[250px] bg-slate-500 relative">
+              <div class="swiper-wrapper">
+                <!-- Slide 1 -->
+                <div class="swiper-slide bg-cover bg-center w-full h-full" style="
+                      background-image: url('/assets/image/galery/foto-1.jpg');
+                    "></div>
+                <!-- Slide 2 -->
+                <div class="swiper-slide bg-cover bg-center w-full h-full" style="
+                      background-image: url('/assets/image/galery/foto-2.jpg');
+                    "></div>
+                <!-- Slide 3 -->
+                <div class="swiper-slide bg-cover bg-center w-full h-full" style="
+                      background-image: url('/assets/image/galery/foto-3.jpg');
+                    "></div>
+              </div>
+            </div>
+            <div class="flex h-[200px]">
+              <div class="bg-[#B5B8AB] bg-opacity-35 w-20 h-full flex text-center justify-center items-center">
+                <div class="vertical-text-l text-2xl italic text-white font-base">
+                  Resepsi
+                </div>
+              </div>
+              <div class="flex flex-col gap-2 py-6 px-5">
+                <h3 class="text-base font-semibold">
+                  Jum'at, 23 Januari 2026 <br />
+                  14.00 WIB - Selesai
+                </h3>
+                <span class="text-xs">
+                  Halallicious
+                  <br />
+                  Jl. Dokter Sucipto No.19, Beru, Kec. Wlingi, Kabupaten Blitar, Jawa Timur 66184
+                </span>
+                <a href="https://share.google/O4fGeujKYfesdwYX1"
+                  class="px-3 py-2 w-max rounded text-white text-xs bg-color-base">Buka Map</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="cover-bawah"
+      class="koverr relative flex flex-col overflow-hidden w-full h-auto bg-[url('/assets/image/galery/foto-5.jpg')] bg-center bg-[#B5B8AB]">
+      <div class=" w-full h-full bg-[#B5B8AB] bg-opacity-85 relative">
+
+        <div class="flex flex-col py-9 h-full px-3 gap-4">
+          <h2 class="lg:text-2xl text-xl font-base text-[#fff] text-center">
+            Our Gallery
+          </h2>
+          <div class="flex flex-col gap-3">
+            <div class="swiper mySwiperMain w-full bg-slate-600 h-96">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <img class="w-full h-full object-cover" src="./assets/image/galery/foto-1.jpg" alt="Nature 1" />
+                </div>
+                <div class="swiper-slide">
+                  <img class="w-full h-full object-cover" src="./assets/image/galery/foto-2.jpg" alt="Nature 2" />
+                </div>
+                <div class="swiper-slide">
+                  <img class="w-full h-full object-cover" src="./assets/image/galery/foto-3.jpg" alt="Nature 3" />
+                </div>
+                <div class="swiper-slide">
+                  <img class="w-full h-full object-cover" src="./assets/image/galery/foto-4.jpg" alt="Nature 4" />
+                </div>
+                <div class="swiper-slide">
+                  <img class="w-full h-full object-cover" src="./assets/image/galery/foto-5.jpg" alt="Nature 4" />
+                </div>
+              </div>
+            </div>
+
+            <!-- Swiper Gallery Thumbs -->
+            <div class="swiper mySwiperThumbs w-full h-24">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <img class="w-full h-full object-cover" src="./assets/image/galery/foto-1.jpg" alt="Thumb 1" />
+                </div>
+                <div class="swiper-slide">
+                  <img class="w-full h-full object-cover" src="./assets/image/galery/foto-2.jpg" alt="Thumb 2" />
+                </div>
+                <div class="swiper-slide">
+                  <img class="w-full h-full object-cover" src="./assets/image/galery/foto-3.jpg" alt="Thumb 3" />
+                </div>
+                <div class="swiper-slide">
+                  <img class="w-full h-full object-cover" src="./assets/image/galery/foto-4.jpg" alt="Thumb 4" />
+                </div>
+                <div class="swiper-slide">
+                  <img class="w-full h-full object-cover" src="./assets/image/galery/foto-5.jpg" alt="Thumb 4" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <section id="cover-bawah"
+      class="koverr relative flex flex-col overflow-hidden w-full h-auto bg-[url('/assets/image/galery/foto-3.jpg')] bg-center bg-[#B5B8AB]">
+      <div class=" w-full h-full bg-[#B5B8AB] bg-opacity-85 relative">
+
+        <div class="flex flex-col py-9 h-full px-3 gap-4">
+          <h2 class="lg:text-2xl text-xl font-base text-[#fff] text-center">
+            Our Story
+          </h2>
+
+          <div class="flex flex-col w-full bg-white bg-opacity-60 overflow-hidden rounded-xl">
+            <div class="swiper-container w-full h-[250px] bg-slate-500 relative shadow-xl">
+              <div class="swiper-wrapper">
+                <!-- Slide 1 -->
+                <div class="swiper-slide bg-cover bg-center w-full h-full" style="
+                      background-image: url('/assets/image/galery/foto-1.jpg');
+                    "></div>
+                <!-- Slide 2 -->
+                <div class="swiper-slide bg-cover bg-center w-full h-full" style="
+                      background-image: url('/assets/image/galery/foto-2.jpg');
+                    "></div>
+                <!-- Slide 3 -->
+                <div class="swiper-slide bg-cover bg-center w-full h-full" style="
+                      background-image: url('/assets/image/galery/foto-3.jpg');
+                    "></div>
+              </div>
+            </div>
+            <div class="flex h-auto">
+              <div class="flex flex-col gap-5 py-6">
+
+                <div class="flex flex-col gap-2  px-5">
+                  <h3 class="text-base font-semibold">
+                    Awal Bertemu
+                  </h3>
+                  <span class="text-xs">
+                    Januari 2025 </span>
+                  <span class="text-xs">
+                    Awal kita bertemu setelah sekian lama hilang kontak, waktu itu siang menjelang sore
+                    kita memutuskan untuk jalan jalan berdua mengunjungi cafe yang cukup unik, cafe di tengah hutan,
+                    disana kita saling bertukar cerita dan saling merasa cocok.
+                  </span>
+                </div>
+
+                <div class="flex flex-col gap-2 px-5">
+                  <h3 class="text-base font-semibold">
+                    Menjalin Hubungan
+                  </h3>
+                  <span class="text-xs">
+                    Juli 2025 </span>
+                  <span class="text-xs">
+                    Long story short dia sering menemaniku berjualan kopi almost everyday kita bersama, dan saat waktu
+                    yang tepat kita berbincang untuk melangkah ke jenjang serius.
+                  </span>
+                </div>
+
+                <div class="flex flex-col gap-2 px-5">
+                  <h3 class="text-base font-semibold">
+                    Bertunangan
+                  </h3>
+                  <span class="text-xs">
+                    Desember 2025 </span>
+                  <span class="text-xs">
+                    Setelah menentukan hari pernikahan semua serba mendadak dan mepet, akhirnya tiba di hari yang kita
+                    tunggu.
+                    Doa kita hanya sesimpel semoga kita bisa menjadi buyut.
+                  </span>
+                </div>
+              </div>
+              <div class="bg-[#B5B8AB] bg-opacity-35 px-3 min-h-max flex text-center justify-center items-center">
+                <div class="vertical-text text-2xl italic text-white font-base">
+                  Akad Nikah
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+
+    <!-- section 5 send ucapan -->
+
+    <!-- / section 5 send ucapan / -->
+
+    <section id="cover"
+      class="koverr relative flex flex-col overflow-hidden w-full h-[130vh] bg-no-repeat bg-cover bg-center">
+      <div class="swiper-container w-full h-[90vh] bg-slate-500 absolute">
+        <div class="swiper-wrapper">
+          <!-- Slide 1 -->
+          <div class="swiper-slide bg-cover bg-center w-full h-full"
+            style="background-image: url('/assets/image/galery/foto-14.jpg')"></div>
+          <!-- Slide 2 -->
+          <div class="swiper-slide bg-cover bg-center w-full h-full"
+            style="background-image: url('/assets/image/galery/foto-15.jpg')"></div>
+          <!-- Slide 3 -->
+          <div class="swiper-slide bg-cover bg-center w-full h-full"
+            style="background-image: url('/assets/image/galery/foto-18.jpg')"></div>
+        </div>
+      </div>
+      <div class="flex h-full justify-end flex-col relative z-30">
+        <div class="flex flex-col text-center w-full items-center gap-1 absolute bottom-14">
+          <h2 class="lg:text-xl text-base font-base text-[#fff]">
+            The Wedding of
+          </h2>
+          <h2 class="lg:text-4xl text-3xl font-bold font-base text-[#fff]">
+            Adit & Nisa
+          </h2>
+          <h2 class="lg:text-xl text-base font-base text-[#fff]">
+            23.01.2026
+          </h2>
+
+          <div class="flex flex-col gap-3">
+            <span class="text-white mx-auto font-base md:text-base text-xs mt-3 px-3 max-w-[450px] w-full">
+              Merupakan sebuah kehormatan dan kebahagiaan bagi kami <br>
+              jika Bapak/Ibu/Saudara/i berkenan hadir dan memberikan <br>
+              doa restu bagi kami. Terima kasih.
+            </span>
+            <div class="flex flex-col justify-center items-center gap-4 text-white md:text-base text-xs font-semibold">
+              <h2 class="lg:text-3xl text-xl font-bold font-base color-base text-center">
+                Desaign By :
+              </h2>
+
+              <img src="./assets/image/logo-guest.jpg" alt="" class="rounded-full w-[20%]" />
+              <div class="flex gap-4">
+                <a href=""
+                  class="flex justify-center items-center rounded-full bg-[#25D366] lg:w-12 lg:h-12 w-8 h-8 text-white">
+                  <i class="fa-brands fa-whatsapp lg:text-2xl text-base"></i>
+                </a>
+                <a href=""
+                  class="flex justify-center items-center rounded-full bg-[#C32AA3] lg:w-12 lg:h-12 w-8 h-8 text-white">
+                  <i class="fa-brands fa-instagram lg:text-2xl text-base"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="bg-gradient-to-t from-[#B5B8AB] h-[45vh] w-full right-0 left-0 bottom-0"></div>
+        <div class="bg-[#B5B8AB] h-[40vh] w-full"></div>
+      </div>
+    </section>
+
+    </main>
+
+    <script>
+      // Function to get the parameters from the URL
+      function getQueryParams() {
+        const params = new URLSearchParams(window.location.search);
+        const output = {};
+        for (const [key, value] of params.entries()) {
+          output[key] = value;
+        }
+        return output;
+      }
+
+      // Display the parameters on the page
+      const params = getQueryParams();
+      const outputElement = document.getElementById("output");
+
+      if (Object.keys(params).length > 0) {
+        outputElement.textContent = JSON.stringify(params.to);
+      } else {
+        outputElement.textContent = "No parameters found.";
+      }
+    </script>
+
+    <script>
+      function copyToClipboard(element) {
+        const accountNumber = element.getAttribute("data-account");
+
+        // Create a temporary textarea element to hold the account number
+        const tempInput = document.createElement("textarea");
+        tempInput.value = accountNumber;
+        document.body.appendChild(tempInput);
+
+        // Select the text
+        tempInput.select();
+        tempInput.setSelectionRange(0, 99999); // For mobile devices
+
+        // Copy the text
+        document.execCommand("copy");
+
+        // Remove the temporary element
+        document.body.removeChild(tempInput);
+
+        // Optional: Display a notification to the user
+        alert(`Rekening ${accountNumber} telah disalin!`);
+      }
+    </script>
+
+    <!-- slider -->
+    <script>
+      var swiper = new Swiper(".swiper-container", {
+        effect: "slide",
+        loop: true,
+        autoplay: {
+          delay: 1000, // delay in milliseconds
+          disableOnInteraction: true,
+        },
+        speed: 1000, // speed of the transition in milliseconds
+        allowTouchMove: false,
+      });
+
+      // Slider Atas - Geser ke kanan (default)
+      var swiperAtas = new Swiper(".swiper-container-atas", {
+        loop: true,
+        autoplay: {
+          delay: 1000, // 5 seconds
+          disableOnInteraction: false,
+        },
+        speed: 1500,
+        allowTouchMove: false,
+      });
+
+      // Slider Bawah - Geser ke kiri (dengan reverse direction)
+      var swiperBawah = new Swiper(".swiper-container-bawah", {
+        loop: true,
+        autoplay: {
+          delay: 1000, // 5 seconds
+          disableOnInteraction: false,
+        },
+        speed: 1500, // default direction is horizontal
+        centeredSlides: true, // Membalik arah menjadi geser ke kiri
+        allowTouchMove: false,
+      });
+    </script>
+
+    <script>
+      var swiperThumbs = new Swiper(".mySwiperThumbs", {
+        spaceBetween: 10,
+        slidesPerView: 4,
+        freeMode: true,
+        watchSlidesProgress: true,
+        loop: true,
+      });
+
+      // Inisialisasi untuk Swiper utama dengan autoplay
+      var swiperMain = new Swiper(".mySwiperMain", {
+        spaceBetween: 10,
+        loop: true,
+        autoplay: {
+          delay: 3000, // 3 detik untuk pergantian otomatis
+          disableOnInteraction: false, // autoplay tidak berhenti saat pengguna berinteraksi
+        },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+        thumbs: {
+          swiper: swiperThumbs,
+        },
+      });
+    </script>
+
+    <script src="script.js"></script>
+    <script src="./assets/js/function.js"></script>
+    <script src="./assets/js/galery.js"></script>
+    <script src="./assets/js/comment.js"></script>
+    <script src="./assets/js/script.js"></script>
+</body>
+
+</html>

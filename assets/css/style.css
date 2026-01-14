@@ -1,0 +1,269 @@
+@import url('https://fonts.googleapis.com/css2?family=Elsie+Swash+Caps:wght@400;900&display=swap');
+
+:root {
+    scroll-behavior: smooth;
+}
+
+.font-base {
+    font-family: 'Elsie Swash Caps', serif;
+
+}
+
+.color-base {
+    color: #ffffff;
+}
+
+
+
+.active {
+    display: none;
+}
+
+.color-text {
+    color: #555555;
+}
+
+.vertical-text {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    -webkit-writing-mode: vertical-rl;
+    -ms-writing-mode: vertical-rl;
+}
+
+.vertical-text-l {
+    writing-mode: vertical-lr;
+    text-orientation: mixed;
+    -webkit-writing-mode: vertical-lr;
+    -ms-writing-mode: vertical-lr;
+    -webkit-text-orientation: mixed;
+}
+
+.bg-color-text {
+    background-color: #767D62;
+}
+
+.bg-color-base {
+    background-color: #767D62;
+}
+
+.bg-rgba {
+    background-color: rgba(0, 0, 0, .7);
+}
+
+.flower-animate-cs {
+    animation-name: flower-animation;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+.text-style-cs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 590px;
+}
+
+.text-style-cs::after {
+    content: " ";
+    max-width: 200px;
+    width: 100%;
+    height: 2px;
+    background-color: #767D62;
+    margin-left: 20px;
+}
+
+.text-style-cs::before {
+    content: " ";
+    max-width: 200px;
+    width: 100%;
+    height: 2px;
+    background-color: #767D62;
+    margin-right: 20px;
+}
+
+.text-style-cs-2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+}
+
+.text-style-cs-2::after {
+    content: " ";
+    max-width: 50px;
+    width: 100%;
+    height: 1.5px;
+    background-color: #767D62;
+    margin-left: 20px;
+}
+
+.text-style-cs-2::before {
+    content: " ";
+    max-width: 50px;
+    width: 100%;
+    height: 1.5px;
+    background-color: #767D62;
+    margin-right: 20px;
+}
+
+@media (max-width: 1024px) {
+    .text-style-cs::before {
+        max-width: 60px;
+    }
+
+    .text-style-cs::after {
+        max-width: 60px;
+
+    }
+}
+
+.style-img-cs {
+    -webkit-mask-image: url('../image/MASKING.svg');
+    -webkit-mask-size: contain;
+    -webkit-mask-position: center center;
+    -webkit-mask-repeat: no-repeat;
+}
+
+.up-down-animation {
+    animation-name: up-down;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+@keyframes flower-animation {
+    0% {
+        transform: rotate(0deg) scale(1);
+    }
+
+    50% {
+        transform: rotate(6deg) scale(1.18);
+    }
+
+    100% {
+        transform: rotate(0deg) scale(1);
+    }
+}
+
+@keyframes up-down {
+    0% {
+        transform: translate(0px, 0px);
+    }
+
+    50% {
+        transform: translate(0px, -10px);
+    }
+
+    100% {
+        transform: translate(0px, 0px);
+    }
+}
+
+@keyframes music-putar {
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+
+}
+
+@keyframes music-putar {
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+css .gallery {
+    text-align: center;
+}
+
+.thumbnails img {
+    width: 100%;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.modal-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.mySlides {
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    width: auto;
+    height: 100%;
+    cursor: move;
+}
+
+.modal-content img {
+    width: auto;
+    height: 100%;
+    object-fit: contain;
+}
+
+.mySlides img {
+    transition: transform 0.3s ease;
+    cursor: zoom-in;
+}
+
+.mySlides.zoomed img {
+    transform: scale(2);
+    cursor: zoom-out;
+}
+
+.card-btncs-galery {
+    position: absolute;
+    top: 15px;
+    right: 32px;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #fff;
+}
+
+.prev,
+.next {
+    color: #fff;
+    position: absolute;
+    top: 50%;
+    font-size: 30px;
+    font-weight: bold;
+    margin-top: -30px;
+    cursor: pointer;
+    transition: 0.6s ease;
+    user-select: none;
+}
+
+.prev {
+    left: 30px;
+}
+
+.next {
+    right: 30px;
+}
+
+.prev:hover,
+.next:hover {
+    color: #ccc;
+}
+
+.mySlides {
+    display: none;
+}
